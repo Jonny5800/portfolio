@@ -1,31 +1,367 @@
-.App {
+/* .App {
+  text-align: center; 
+} */
+*{
+ /* border: 1px solid black;  */
+ /* margin: 0px;
+ padding: 0px; */
+ box-sizing: border-box;
+
+}
+
+/*******************************/
+
+body{
+  scroll-behavior: smooth; 
+}
+html{
+  scroll-behavior: smooth;
+}
+#myCanvas {
+  /* display: block; */
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+#projects{
+  margin-top: 60px;
+  }
+.aboutSection{height: 100%;
+border: 1px solid green;}
+.stickyBanner{
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  border: 4px red solid;
+  align-items: center;
+  height: 60px;
+  animation: scrollStickyBanner 1s ease-in-out;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: white;
+}
+.headerContainers{
+  text-align: left;
+  margin-left: 2vw;
+}
+
+.sectionHeader{
+  display: flex;
+  padding-top: 40px;
+  /* margin-top: 40px; */
+  /* justify-content:  */
+}
+#aboutSectionHeader{
+  padding-top: 50px;
+}
+.scrollers{
+  height: 10px;
+}
+.bannerLabels{
+  margin: 10px 30px 10px 30px;
+}
+.sectionAbout{
+  display: flex;
+  border: solid white 3px;
+  /* height: 92vh; */
+  align-items: center;
+  justify-content: center;
+  margin-top: 6vh;
+  /**below for animation****/
+  position: relative;
+  /* top: 100vh; */
+}
+.aboutSection{
+  height: 100vh;
+}
+.animate-section-about{
+  animation: animate-section-about 1s ease
+}
+.sectionAboutPicture{
+  /* display: flex; */
+  /* text-align: center; */
+  max-height: 400px;
+  width: auto;
+  max-width: 25vw;
+  margin: 20px;
+  border-radius: 20px;
+  min-width: 290px;
+}
+.aboutPictureAndName{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  /* text-align: center; */
+  align-items: center;
+}
+.aboutText{
+  max-width: 435px;
+  margin-left: 40px;
+}
+
+/* #projectSectionHeader{
+  margin-top: 40px;
+} */
+.sectionProjects{
+  border: 2px blue solid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 620px;
+  /* flex-direction: row-reverse; */
+}
+
+.projectDisplayDiv{/*does nothing*/
+  border: 2px blue solid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 620px;
+}
+
+.projectChild:nth-child(n+1) {
+  order: -2;
+  /*order: -1; works*/
+}
+
+.projectChild{
+  width: 45%;
+  min-height: 200px;
+  margin: 12px;
+  text-align: center;
+  /**/
+  transition: all 0.8s ease-in-out;/*experimenting*/
+  /**/
+}
+.projectImageDiv{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.projectImage{
+  max-width: 100%;
+  max-height: 150px;
+  margin: 5px;
+}
+.projectLogos{
+  max-height: 30px;
+}
+/* #contactSectionHeader{
+  margin-top: 40px;
+} */
+.sectionContact{
+  border: 2px solid red;
+  height: 100vh;
+}
+.contactLogoDiv{
+  display: flex;
+  justify-content: space-around;
+}
+.contactIconDivs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contactIcon{
+  height: 150%;
+  width: auto;
+}
+.contactForm{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.formHeadind{
+  width: 300px;
+  text-align: left;
+}
+.formName{
+  margin-top: 15px ;
+  height: 40px;
+  width: 300px;
+  border-radius: 7px;
+  resize: none;
+}
+.formName::placeholder{
+  padding: 5px;
+}
+.formEmail{
+  height: 40px;
+  width: 300px;
+  margin-top: 15px ;
+  border-radius: 7px;
+  resize: none;
+}
+.formEmail::placeholder{
+  padding: 5px;
+}
+.formMessage{
+  height: 150px;
+  width: 300px;
+  margin-top: 15px ;
+  border-radius: 7px;
+  padding: 5px;
+  /* resize: none; */
+  /**/
+  /*padding: 10px; /* Add some padding to the input field */
+  /*text-indent: 10px; /* Align the text input to the position of the placeholder text */
+}
+.formMessage::placeholder {
+  /* position: absolute; */
+  /* display: flex; */
+  /* padding: 5px; */
+  /* left: 0;
+  top: 0; */
+  /* text-indent: 10px; */
+  /*top: 10px; /* Adjust the top position to match the padding */
+  /*left: 10px; /* Align the placeholder text to the left side of the input field */
+  
+}
+/* .contactLogo{
+  justify-content: space-evenly; 
+   margin: 0px 20px;
+} */
+.formSubmit{
+  margin-top: 5px;
+  text-align: right;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+#enquiryForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes scrollStickyBanner {
+  0%{
+    transform: translateY(-10vh);
+  }
+  100%{
+    transform: translateY(0vh);
+
   }
 }
 
+@keyframes animate-section-about {
+  0%{
+    transform: translateY(100vh);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+.hidden {
+  position: absolute;
+  top: -100%;
+}
+
+
+
+/**************Bottom*****************/
+
+/* @keyframes animate slide up
+.logos{
+  max-height: 400px;
+  
+} */
+.logoDiv{
+  min-height: 400px;
+}
+.langLogos{
+  max-height: 400px;
+}
+.smallLogos *{
+  max-height: 300px;
+}
+
+.welcomeDiv{
+  height: 10vh;
+  text-align: center;
+}
+/* .lastDiv{
+  height: 40vh;
+  background-color: rebeccapurple;
+  margin-top: 100px;
+}
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
+ 
+}
+
+html{
+  background-color: white
+}
+
+.app{
+  text-align: center;
+  padding: 40px;
+}
+.button{
+  padding: 8px;
+}
+.container{
+  padding: 40px;
+  margin-top: 200px;
+  min-height: 200px;
+}
+.item{
+
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: black;
+}
+
+ .html-logo, .css-logo, .js-logo, .htmlTrans-logo{ 
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transition: max-height 0.75s ease-in-out;
+  max-height: 0px;
+  /* transform: translate(-50%,-50%); */
+}
+
+.re-logo {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  animation: spin 6s linear infinite;
+  max-height: 400px;
+  border: 0px solid green;
+  transform: translateY(50%);
+}
+
+.enterButtonDiv{
+  position:fixed;
+  left: 50%;
+  top: 65%;
+  transform: translateX(-50%);
+  
+}
+.enterButton{
+  padding: 20px 40px;
+  border-radius: 15px;
+  font-size: 1.0rem;
 }
 
 @keyframes App-logo-spin {
@@ -34,5 +370,28 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@media (max-width: 800px) {
+  .sectionProjects {
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease;
+  }
+
+  .projectChild {
+    width: 80%;
+    margin: 12px 0;
+    transition: all 1s ease;
   }
 }
